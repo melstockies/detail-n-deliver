@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail N Deliver — Mobile Car Detailing</title>
+  <link rel="icon" type="image/svg+xml" href="static/favicon.svg">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css"></head>
+<body>
+
+  <!-- Atmospheric background: stars + sweeping headlight beam -->
+  <div class="atmosphere" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="beam beam-1"></div>
+    <div class="beam beam-2"></div>
+  </div>
+
+  <!-- Top nav -->
+  <nav class="nav">
+    <a href="#top" class="nav-logo">D<svg class="nav-logo-wheel" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#0A1628" stroke="#5BA3F5" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#5BA3F5"/><line x1="12" y1="3" x2="12" y2="21" stroke="#5BA3F5" stroke-width="1.5"/><line x1="3" y1="12" x2="21" y2="12" stroke="#5BA3F5" stroke-width="1.5"/></svg>D</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#quote">Quote</a>
+      <a href="#book">Book</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <h1 class="wordmark">
+        <span class="wm-line">DETAIL</span>
+        <span class="wm-line wm-n">N</span>
+        <span class="wm-line">DELIVER</span>
+      </h1>
+      <div class="wordmark-rule">
+        <span class="rule"></span>
+        <span class="tagline">MOBILE CAR DETAILING</span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- Animated car SVG -->
+      <div class="car-stage">
+        <svg class="car" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" aria-label="Mobile detail car">
+          <!-- Spotlight glow under car -->
+          <ellipse cx="350" cy="220" rx="280" ry="35" fill="url(#glow)" opacity="0.45"/>
+
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#4A90E2" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#4A90E2" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#4A90E2"/>
+              <stop offset="100%" stop-color="#2C6BB8"/>
+            </linearGradient>
+            <linearGradient id="windowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#7FB5F0"/>
+              <stop offset="100%" stop-color="#5097DC"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Car body: lower section -->
+          <path class="car-body"
+                d="M 80 195
+                   Q 80 175 110 170
+                   L 180 165
+                   Q 230 150 290 148
+                   L 430 148
+                   Q 490 150 540 165
+                   L 600 175
+                   Q 625 180 625 200
+                   L 625 210
+                   Q 625 215 620 215
+                   L 90 215
+                   Q 80 215 80 205
+                   Z"
+                fill="url(#bodyGrad)"/>
+
+          <!-- Roof curve -->
+          <path class="car-roof"
+                d="M 200 155
+                   Q 230 105 290 100
+                   L 420 100
+                   Q 470 105 500 155
+                   Z"
+                fill="#2C6BB8"/>
+
+          <!-- Windows row (5 panels) -->
+          <g class="car-windows">
+            <rect x="220" y="115" width="45" height="35" rx="3" fill="url(#windowGrad)"/>
+            <rect x="270" y="115" width="45" height="35" rx="3" fill="url(#windowGrad)"/>
+            <rect x="320" y="115" width="45" height="35" rx="3" fill="url(#windowGrad)"/>
+            <rect x="370" y="115" width="45" height="35" rx="3" fill="url(#windowGrad)"/>
+            <rect x="420" y="115" width="45" height="35" rx="3" fill="url(#windowGrad)"/>
+          </g>
+
+          <!-- Headlight -->
+          <circle class="headlight" cx="610" cy="185" r="6" fill="#FFF6C8"/>
+          <!-- Taillight -->
+          <rect class="taillight" x="84" y="178" width="8" height="14" rx="2" fill="#FF5050"/>
+
+          <!-- Wheels -->
+          <g class="wheel wheel-front" style="transform-origin: 510px 215px;">
+            <circle cx="510" cy="215" r="32" fill="#0A1628" stroke="#1A3A6B" stroke-width="2"/>
+            <circle cx="510" cy="215" r="14" fill="#6B7785"/>
+            <circle cx="510" cy="215" r="4" fill="#0A1628"/>
+            <rect x="508" y="187" width="4" height="56" fill="#0A1628" opacity="0.6"/>
+            <rect x="482" y="213" width="56" height="4" fill="#0A1628" opacity="0.6"/>
+          </g>
+          <g class="wheel wheel-rear" style="transform-origin: 190px 215px;">
+            <circle cx="190" cy="215" r="32" fill="#0A1628" stroke="#1A3A6B" stroke-width="2"/>
+            <circle cx="190" cy="215" r="14" fill="#6B7785"/>
+            <circle cx="190" cy="215" r="4" fill="#0A1628"/>
+            <rect x="188" y="187" width="4" height="56" fill="#0A1628" opacity="0.6"/>
+            <rect x="162" y="213" width="56" height="4" fill="#0A1628" opacity="0.6"/>
+          </g>
+
+          <!-- Subtle body highlight -->
+          <path d="M 200 155 Q 230 108 290 103 L 420 103 Q 470 108 498 155"
+                fill="none" stroke="#7FB5F0" stroke-width="1.5" opacity="0.4"/>
+
+          <!-- ============== CLEANING OVERLAY ============== -->
+          <defs>
+            <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"  stop-color="white" stop-opacity="0"/>
+              <stop offset="50%" stop-color="white" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+            <clipPath id="carClip">
+              <path d="M 80 195 Q 80 175 110 170 L 180 165 Q 230 150 290 148 L 430 148 Q 490 150 540 165 L 600 175 Q 625 180 625 200 L 625 210 Q 625 215 620 215 L 90 215 Q 80 215 80 205 Z"/>
+              <path d="M 200 155 Q 230 105 290 100 L 420 100 Q 470 105 500 155 Z"/>
+            </clipPath>
+          </defs>
+
+          <!-- Shine sweeps across the freshly-cleaned car -->
+          <g clip-path="url(#carClip)">
+            <rect class="shine-overlay" x="0" y="80" width="70" height="160" fill="url(#shineGrad)"/>
+          </g>
+
+          <!-- Soap bubbles rising off the car -->
+          <g class="bubbles">
+            <circle class="bubble bubble-1" cx="220" cy="195" r="4"/>
+            <circle class="bubble bubble-2" cx="290" cy="200" r="3"/>
+            <circle class="bubble bubble-3" cx="360" cy="185" r="5"/>
+            <circle class="bubble bubble-4" cx="430" cy="195" r="3"/>
+            <circle class="bubble bubble-5" cx="490" cy="190" r="4"/>
+            <circle class="bubble bubble-6" cx="250" cy="205" r="3"/>
+            <circle class="bubble bubble-7" cx="400" cy="200" r="2.5"/>
+            <circle class="bubble bubble-8" cx="320" cy="190" r="3.5"/>
+          </g>
+
+          <!-- The sponge doing the scrubbing -->
+          <g class="sponge-group">
+            <ellipse cx="0" cy="14" rx="20" ry="3" fill="rgba(0,0,0,0.35)"/>
+            <rect x="-22" y="-10" width="44" height="24" rx="5" fill="#FFD93D"/>
+            <rect x="-22" y="6" width="44" height="8" rx="2" fill="#E8B92D"/>
+            <ellipse cx="-12" cy="-13" rx="9" ry="6" fill="white" opacity="0.92"/>
+            <ellipse cx="4" cy="-16" rx="11" ry="7" fill="white" opacity="0.88"/>
+            <ellipse cx="16" cy="-12" rx="7" ry="5" fill="white" opacity="0.9"/>
+            <ellipse cx="-2" cy="-11" rx="6" ry="3" fill="white" opacity="0.6"/>
+            <rect x="-20" y="-8" width="40" height="3" rx="1" fill="white" opacity="0.45"/>
+          </g>
+        </svg>
+
+        <!-- Headlight cone -->
+        <div class="headlight-cone"></div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="#book" class="cta-primary">Book a detail</a>
+        <a href="#quote" class="cta-secondary">Build a quote →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- WE COME TO YOU strip -->
+  <section class="strip">
+    <div class="strip-inner">
+      <span class="strip-eyebrow">Mobile service</span>
+      <h2 class="strip-headline">We come to you.</h2>
+      <p class="strip-sub">Your driveway, your office parking lot, wherever your car is sitting. We bring water, power, and the full kit.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="section-head">
+      <span class="eyebrow">01 · Services</span>
+      <h2 class="section-title">Two ways to clean.</h2>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card" data-service="exterior">
+        <div class="service-card-top">
+          <span class="service-check">✓</span>
+          <h3 class="service-name">Exterior Wash &amp; Dry</h3>
+          <p class="service-price"><span class="price-label">Starting at</span><span class="price-value">$225</span></p>
+        </div>
+        <ul class="service-includes">
+          <li>Two-bucket hand wash</li>
+          <li>Wheel + tire deep clean &amp; shine</li>
+          <li>Streak-free window treatment</li>
+          <li>Microfiber dry, panel by panel</li>
+          <li>Door jambs wiped down</li>
+        </ul>
+        <button class="service-select" type="button" data-service="exterior">Choose exterior</button>
+      </article>
+
+      <article class="service-card service-card-feature" data-service="full">
+        <div class="service-card-top">
+          <span class="service-check">✓</span>
+          <h3 class="service-name">Full Detail</h3>
+          <p class="service-price"><span class="price-label">Starting at</span><span class="price-value">$325<span class="price-plus">+</span></span></p>
+        </div>
+        <ul class="service-includes">
+          <li>Everything in Exterior Wash &amp; Dry</li>
+          <li>Full interior vacuum + crevices</li>
+          <li>Carpet &amp; upholstery spot cleaning</li>
+          <li>Leather wiped down &amp; conditioned</li>
+          <li>Dashboard, vents, console wiped clean</li>
+        </ul>
+        <button class="service-select" type="button" data-service="full">Choose full detail</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- QUOTE CALCULATOR -->
+  <section id="quote" class="quote">
+    <div class="section-head">
+      <span class="eyebrow">02 · Live quote</span>
+      <h2 class="section-title">Build your price.</h2>
+      <p class="section-sub">Pick a service, your vehicle, and any add-ons. Price updates as you go.</p>
+    </div>
+
+    <div class="quote-grid">
+      <div class="quote-controls">
+        <fieldset class="q-group">
+          <legend>Service</legend>
+          <div class="q-options">
+            <label class="q-pill">
+              <input type="radio" name="service" value="exterior" checked>
+              <span>Exterior Wash</span>
+            </label>
+            <label class="q-pill">
+              <input type="radio" name="service" value="full">
+              <span>Full Detail</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q-group">
+          <legend>Vehicle</legend>
+          <div class="q-options">
+            <label class="q-pill">
+              <input type="radio" name="vehicle" value="sedan" checked>
+              <span>Sedan</span>
+            </label>
+            <label class="q-pill">
+              <input type="radio" name="vehicle" value="suv">
+              <span>SUV</span>
+            </label>
+            <label class="q-pill">
+              <input type="radio" name="vehicle" value="truck">
+              <span>Truck</span>
+            </label>
+            <label class="q-pill">
+              <input type="radio" name="vehicle" value="van">
+              <span>Van</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q-group">
+          <legend>Add-ons</legend>
+          <div class="q-addons">
+            {% for key, addon in addons.items() %}
+            <label class="q-addon">
+              <input type="checkbox" name="addons" value="{{ key }}">
+              <span class="q-addon-label">{{ addon.label }}</span>
+              <span class="q-addon-price">+${{ addon.price }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </fieldset>
+      </div>
+
+      <aside class="quote-receipt">
+        <div class="receipt-head">
+          <span class="receipt-eyebrow">Estimate</span>
+          <span class="receipt-id" id="receipt-id">DND-LIVE</span>
+        </div>
+        <div class="receipt-lines" id="receipt-lines">
+          <div class="receipt-line"><span>Loading…</span><span></span></div>
+        </div>
+        <div class="receipt-total">
+          <span>Total</span>
+          <span class="receipt-total-value" id="receipt-total">$225</span>
+        </div>
+        <a href="#book" class="cta-primary cta-block" id="book-with-quote">Book this →</a>
+        <p class="receipt-note">Final price confirmed on-site after vehicle inspection.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book" class="book">
+    <div class="section-head">
+      <span class="eyebrow">03 · Book</span>
+      <h2 class="section-title">Pick a time. We'll roll up.</h2>
+    </div>
+
+    <form id="booking-form" class="booking-form" novalidate>
+      <div class="form-row">
+        <label class="field">
+          <span class="field-label">Full name</span>
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+        <label class="field">
+          <span class="field-label">Phone</span>
+          <input type="tel" name="phone" required autocomplete="tel">
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label class="field">
+          <span class="field-label">Email</span>
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label class="field">
+          <span class="field-label">Service address</span>
+          <input type="text" name="address" required placeholder="Where your car will be parked" autocomplete="street-address">
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label class="field">
+          <span class="field-label">Date</span>
+          <input type="date" name="date" required>
+        </label>
+        <label class="field">
+          <span class="field-label">Time window</span>
+          <select name="time" required>
+            <option value="">Choose…</option>
+            <option value="8-10">8:00 AM – 10:00 AM</option>
+            <option value="10-12">10:00 AM – 12:00 PM</option>
+            <option value="12-14">12:00 PM – 2:00 PM</option>
+            <option value="14-16">2:00 PM – 4:00 PM</option>
+            <option value="16-18">4:00 PM – 6:00 PM</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label class="field">
+          <span class="field-label">Service</span>
+          <select name="service" id="book-service" required>
+            <option value="exterior">Exterior Wash &amp; Dry</option>
+            <option value="full">Full Detail</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Vehicle type</span>
+          <select name="vehicle" id="book-vehicle" required>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+            <option value="truck">Truck</option>
+            <option value="van">Van / Minivan</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="field field-full">
+        <span class="field-label">Anything we should know? <span class="field-hint">(pet hair, stains, deep clean needs)</span></span>
+        <textarea name="notes" rows="3"></textarea>
+      </label>
+
+      <div class="form-footer">
+        <div class="form-quote-mirror">
+          <span class="form-quote-label">Estimated total</span>
+          <span class="form-quote-value" id="form-quote-value">$225</span>
+        </div>
+        <button type="submit" class="cta-primary cta-large">Confirm booking</button>
+      </div>
+
+      <div class="form-status" id="form-status" hidden></div>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">D<svg class="nav-logo-wheel" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#0A1628" stroke="#5BA3F5" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="#5BA3F5"/><line x1="12" y1="3" x2="12" y2="21" stroke="#5BA3F5" stroke-width="1.5"/><line x1="3" y1="12" x2="21" y2="12" stroke="#5BA3F5" stroke-width="1.5"/></svg>D</span>
+        <p>Mobile car detailing, Bay Area.</p>
+      </div>
+      <div class="footer-contact">
+        <a href="mailto:detailndeliver@gmail.com" class="footer-email">✉ detailndeliver@gmail.com</a>
+        <p class="footer-meta">Serving SF · Peninsula · East Bay</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
