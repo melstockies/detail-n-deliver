@@ -13,11 +13,10 @@ BOOKINGS_FILE = os.path.join(os.path.dirname(__file__), 'bookings.json')
 
 # ---------- Pricing config ----------
 BASE_PRICES = {
-    'exterior': 225,   # Exterior Wash & Dry
-    'full': 325,       # Full Detail — SF market rate for sedans
+    'exterior': 225,
+    'full': 325,
 }
 
-# Vehicle size multipliers applied to the base service price
 VEHICLE_MULTIPLIER = {
     'sedan': 1.0,
     'suv': 1.2,
@@ -25,26 +24,29 @@ VEHICLE_MULTIPLIER = {
     'van': 1.4,
 }
 
-# Add-ons are flat-rate dollars added on top
 ADDONS = {
     'pet_hair': {'label': 'Pet hair removal', 'price': 45},
 }
 
 
-# ---------- Storage helpers ----------
 def load_bookings():
     if os.path.exists(BOOKINGS_FILE):
-        with open(BOOKINGS_FILE, 'r') as f:
-            return json.load(f)
+        try:
+            with open(BOOKINGS_FILE, 'r') as f:
+                return json.load(f)
+        except (json.JSONDecodeError, IOError):
+            return []
     return []
 
 
 def save_bookings(bookings):
-    with open(BOOKINGS_FILE, 'w') as f:
-        json.dump(bookings, f, indent=2)
+    try:
+        with open(BOOKINGS_FILE, 'w') as f:
+            json.dump(bookings, f, indent=2)
+    except IOError:
+        pass
 
 
-# ---------- Routes ----------
 @app.route('/')
 def index():
     return render_template('index.html', addons=ADDONS)
@@ -52,7 +54,6 @@ def index():
 
 @app.route('/api/quote', methods=['POST'])
 def quote():
-    """Calculate a live quote from the user's selections."""
     data = request.get_json() or {}
     service = data.get('service', 'exterior')
     vehicle = data.get('vehicle', 'sedan')
@@ -89,7 +90,6 @@ def quote():
 
 @app.route('/api/book', methods=['POST'])
 def book():
-    """Accept a booking request and persist it to bookings.json."""
     data = request.get_json() or {}
     required = ['name', 'email', 'phone', 'address', 'service', 'vehicle', 'date', 'time']
     missing = [f for f in required if not data.get(f)]
@@ -121,8 +121,11 @@ def book():
 
 @app.route('/admin/bookings')
 def admin_bookings():
-    """Simple endpoint to view all bookings. In production, protect this."""
     return jsonify(load_bookings())
+
+
+# Passenger (Namecheap) entry point
+application = app
 
 
 if __name__ == '__main__':
