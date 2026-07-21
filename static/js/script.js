@@ -107,7 +107,11 @@
       const r = await fetch('/api/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       const data = await r.json();
       if (r.ok && data.success) {
-        formStatus.innerHTML = `✓ Booked. Confirmation #${data.booking_id}. We'll email <strong>${payload.email}</strong> within an hour to lock in your time.`;
+        formStatus.innerHTML = `
+  ✓ Got it, ${payload.name.split(' ')[0]}! Your booking request is in.<br>
+  We'll reach out within an hour to confirm your time.<br>
+  <span style="opacity:0.7;font-size:12px;">Confirmation #${data.booking_id}</span>
+`;
         formStatus.className = 'form-status form-status-success';
         formStatus.hidden = false;
         bookingForm.reset();
